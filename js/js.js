@@ -8,20 +8,41 @@ function getComputerChoice() {
         return "scissors"
     } 
 }
-const computerChoice = getComputerChoice()
-const playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
+let computerChoice = getComputerChoice()
+let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
 console.log(computerChoice) 
 function round() {
     if (playerChoice == computerChoice){
         return("TIE")
     } else if (playerChoice == "rock" && computerChoice == "scissors"){
-        return("You win!!")
+        return ("You win!")
+
     }  else if (playerChoice == "paper" && computerChoice == "rock"){
-        return("You win!!")
+        return("You win!")
     } else if (playerChoice == "scissors" && computerChoice == "paper"){
-        return("You win!!")
+        return("You win!")
     } else {
         return("You lose")
     }
 }
- round ()
+
+let result = round()
+ 
+
+function play() {
+    for (let i = 0; i < 5; i++) {
+        if (result == "You win!"){
+    
+         console.log("you've won this round")
+        } else if (result == "You lose"){
+            i--
+            console.log("you've lost this round")
+        } else { 
+            console.log("tie")
+        }
+
+    }
+    
+}
+
+play()
