@@ -1,4 +1,5 @@
-function computerChoice() {
+//função computador
+function getComputerChoice() {
     const escolha = Math.floor(Math.random() * 3);
     if( escolha === 2){
         return "rock"
@@ -8,74 +9,48 @@ function computerChoice() {
         return "scissors"
     } 
 }
-console.log(computerChoice())
-
-function playerChoice() {
-    prompt("Rock, Paper or Scissors").toLowerCase()
-    if (prompt() === "rock" || prompt() === "paper" || prompt() === "scissors") {
-        alert("DON'T DO THIS MAN")
-        playerChoice()
-    }
-}
-
-playerChoice()
 
 
 
-
-/*
-let computerChoice = getComputerChoice()
-let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
-console.log(computerChoice) 
-/*
-function round() {
-    if (playerChoice == computerChoice){
-        return("TIE")
-        console.log("TIE")
-    } else if (playerChoice === "rock" && computerChoice === "scissors"){
-        return ("You've won this round!")
-        console.log("You've won this round!")
-       
-    }  else if (playerChoice === "paper" && computerChoice === "rock"){
-        return("You've won this round!")
-        console.log("You've won this round!")
-        
-    } else if (playerChoice === "scissors" && computerChoice === "paper"){
-        return("You've won this round!")
-        console.log("You've won this round!")
-        
+//função jogador 
+function getPlayerChoice() {
+   let escolha = prompt("Rock, Paper or Scissors").toLowerCase()
+    if (escolha === "rock" || escolha === "paper" || escolha === "scissors") {
+        return escolha
     } else {
-        return("You've lost this round")
-        console.log("You've lost")
+        alert("DONT DO THAT!")
+        getPlayerChoice()
     }
 }
-/*
-round()
 
-let result = round()
-let wins = 0
-let losts = 0
+// função de um round
 
-function play(numberOfMatches){
-    for (let matches = 0; matches <= numberOfMatches; matches = matches + 1){
-        round();
-        let result = round();
-        if (result === "You've won this round!") { 
-            return wins = losts + 1;
-            console.log(wins);
-        } else if (result === "You've lost this round") {           
-            return losts = losts + 1;
-            console.log(losts);
-        } else {
-            console.log("Tie")
-        }
-    } if (wins > losts){
-        console.log("congratulations")
-    } else if (losts > wins){
-        console.log("Sorry")
-    }
+
+function round(playerChoice, computerChoice) {
+   
+    if (playerChoice === computerChoice){
+        return  "empate"
+    } else if ( playerChoice === "rock" && computerChoice === "scissors"){
+        return  "Jogador ganhou"
+    } else if (playerChoice === "paper" && computerChoice === "rock"){
+        return "Jogador ganhou"
+    } else if (playerChoice === "scissors" && computerChoice === "paper"){
+        return  "Jogador ganhou"
+    } else { return  "Jogador perdeu"   
+}     
 }
-*/
 
 
-                                 
+
+function game (numeroRound){
+    
+    for(matches = 0 ; matches <= numeroRound - 1; matches = matches +1){
+        const playerChoice = getPlayerChoice();
+        const computerChoice = getComputerChoice();
+        console.log(round(playerChoice, computerChoice))
+        
+    }  
+    
+}
+
+
